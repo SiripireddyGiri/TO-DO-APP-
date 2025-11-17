@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="discription" content="this is about the todo list">
+    <title>DO LIST</title>
+    <link rel="stylesheet" href="./App.css">
+</head>
+<body class="abc">
+    <div class="inner">
+    <header>
+        <h1>TO-DO LIST</h1>
+    </header>
+        <form method="get">
+        <label for="name">NAME :</label>
+        <input id ="name" type="text" value="" maxlength="10" minlength="4" placeholder="enter the name of the card" required>
+        <input id ="add-btn" type="button" value="Add">
+        </form>
+
+        <h2>Display the to do list</h2><br>
+        <ol id="todo">
+        </ol>
+        <script>
+            let list=[];
+            const field=document.getElementById("name");
+            const addbtn=document.getElementById("add-btn");
+            const todo=document.getElementById("todo");
+            addbtn.addEventListener("click",function(){
+                const item=field.value.trim();
+                if(item!==""){
+                    list.push(item);
+                    console.log(item);
+
+                    const li=document.createElement("li");
+                    li.textContent=item;
+                    todo.appendChild(li);
+                    field.value="";
+                }
+                else{
+                    alert("enter proper field");
+                }
+            })
+        </script>
+        </div>
+</body>
+</html>

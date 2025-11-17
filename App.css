@@ -1,0 +1,14 @@
+*{
+    margin: 0px;
+}
+
+h1{
+    color: aqua;
+    margin-bottom: 20px;
+}
+
+abc{
+    display: flex;
+    align-items: center;
+}
+
