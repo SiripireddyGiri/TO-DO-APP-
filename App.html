@@ -3,74 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="discription" content="this is about the todo list">
-    <title>DO LIST</title>
+    <title>Simple To-Do App</title>
     <link rel="stylesheet" href="./App.css">
-    <link rel="icon" type="image" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwRMwZYLy0XuFOa5rKlDzS9UYa2aSxCBfeizDfX_GGeRCgI1gtugu9deYURx4wCOZ7UF4&usqp=CAU">
 </head>
 <body class="abc">
-    <header class="headmain">
-        <section class="head1">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLXzy02NOgiWDhvJJX8bBo_WCFBTCE0Rg8I7SVJaJwNPJRmmd9K5xZdxdAMOu5VNkYHts&usqp=CAU" alt="Logo Not Found" height="60px" width="60px">
-        </section>
-        <section class="head2">
-        <h1>TO-DO LIST</h1>
-        </section>
-    </header>
-    <div class="main">
-        <section class="subsec1">
-        <form method="get">
-            <h2>Todo List</h2>
-        <label for="input"><strong>NAME :</strong></label>
-        <input id ="input" type="text" value="" maxlength="20" minlength="4" placeholder="Enter The Item" required>
-        <button id="btn"><strong>Add</strong></button>
+
+<header class="headmain">
+    <h1>TO-DO LIST</h1>
+</header>
+
+<div class="main">
+    <section class="subsec1">
+        <form id="todoForm">
+            <h2>Add Item</h2>
+            <label for="input"><strong>Item :</strong></label>
+            <input id="input" type="text" placeholder="Enter task" required>
+            <button id="btn"><strong>Add</strong></button>
         </form>
-        </section>
-        <section class="subsec2">
-           <div class ="sub">
-             <h2>Display To-Do List</h2>
-            <ol id="ol">
-            </ol>
-            <button id="del">Delete</button>
-           </div>
-        </section>
-    </div>
-        <script>
-            let list=[];
-            const btn=document.getElementById("btn");
-            const input=document.getElementById("input");
-            const ol=document.getElementById("ol")
+    </section>
 
-            btn.addEventListener("click", function(e){
-                e.preventDefault();
+    <section class="subsec2">
+        <div class="sub">
+            <h2>Your Tasks</h2>
+            <ol id="ol"></ol>
+        </div>
+    </section>
+</div>
 
-                let value=input.value.trim();
-                if(value.length===0){
-                    return;
-                }
-                list.push(value);
-                display();
-                alert("Item Added Into The List");
-                input.value="";
-            });
+<script src="./App.js"></script>
 
-            function display(){
-                ol.innerHTML="";
-                list.forEach(function(ele){
-                    let li=document.createElement("li");
-                    li.textContent=ele;
-                    ol.appendChild(li);
-                });
-            }
-
-            const del=document.getElementById("del");
-
-            del.addEventListener("click",function(){
-                list.pop();
-                display();
-                alert("Item Deleted From the List");
-            })
-        </script>
-        
 </body>
 </html>
