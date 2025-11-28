@@ -1,76 +1,72 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    --button-bg-color:#b5c6e0;
 }
 
-.abc {
-    background: linear-gradient(90deg, #d7d2cc, #304352); /* smooth modern */
-    min-height: 100vh;
-}
-
-.headmain {
-    background: linear-gradient(135deg, #667db6, #0082c8, #0082c8, #667db6);
-    text-align: center;
-    padding: 20px 0;
-    color: white;
-    font-size: 28px;
-    font-weight: bold;
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
-}
-
-.main {
+body{
+    background: linear-gradient(90deg,#ddb4f6, #8dd0fc);
+    padding:10%;
     display: flex;
     justify-content: center;
-    gap: 30px;
-    padding: 40px;
-    flex-wrap: wrap;
 }
-
-.subsec1,
-.subsec2 .sub {
-    background: rgba(255, 255, 255, 0.25);
-    padding: 25px 30px;
-    border-radius: 15px;
-    width: 300px;
-    backdrop-filter: blur(5px);
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
-}
-
-.subsec1 form {
+.present{
+    background:rgba(255,255,255,0.4);
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    flex-flow: column wrap;
+    gap: 15px;
+    height: 120%;
+    width:50%;
+    border-radius: 3%;
+    padding: 30px;
+}
+
+.present:hover{
+    box-shadow: 0 0 20px black;
+}
+
+.details{
+    display: flex;
+    justify-content: center;
+}
+
+.details-sub, .arrange{
+    display:flex;
+    flex-flow: column wrap;
     gap: 10px;
+    font-size: 1.5rem;
 }
 
-input {
-    padding: 8px;
+button{
+    background-color:var(--button-bg-color);
+    height:30px;
+    width: 60px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+button:hover{
+    transform: scale(1.1);
+}
+
+#input{
+    border: 3px solid black;
     border-radius: 5px;
-    border: 1px solid #555;
+    height: 25px;
 }
 
-button {
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    background: #4b79a1;
-    color: white;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #283e51;
-}
-
-.taskItem {
+.view{
     display: flex;
-    justify-content: space-between;
-    padding: 5px 0;
-    align-items: center;
+    justify-content: center;
 }
 
-.taskButtons button {
-    margin-left: 5px;
-    padding: 3px 7px;
-    font-size: 12px;
+.arrange button{
+    margin: 10px;
+}
+
+.show{
+    display: flex;
+    align-items: center;
 }

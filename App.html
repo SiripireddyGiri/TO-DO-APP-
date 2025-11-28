@@ -3,34 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple To-Do App</title>
+    <title>TO-Do List</title>
     <link rel="stylesheet" href="./App.css">
 </head>
-<body class="abc">
-
-<header class="headmain">
-    <h1>TO-DO LIST</h1>
-</header>
-
-<div class="main">
-    <section class="subsec1">
-        <form id="todoForm">
-            <h2>Add Item</h2>
-            <label for="input"><strong>Item :</strong></label>
-            <input id="input" type="text" placeholder="Enter task" required>
-            <button id="btn"><strong>Add</strong></button>
-        </form>
-    </section>
-
-    <section class="subsec2">
-        <div class="sub">
-            <h2>Your Tasks</h2>
-            <ol id="ol"></ol>
+<body>
+    <div class="present">
+        <div class="details">
+        <section class="details-sub">
+            <p><strong>TO-DO LIST</strong></p>
+            <label for="input">Enter Item Name : </label>
+            <input id="input" type="text" minlength="0" maxlength="10" required placeholder="Enter the Item">
+            <button id="add-btn" value="Add" onclick="add()">ADD</button>
+        </section>
+    </div>
+    <section class="view">
+        <div class="arrange">
+            <p><strong>Display Item List</strong></p>
+            <div id="show"></div>
         </div>
     </section>
-</div>
-
-<script src="./App.js"></script>
-
+    <script src="App.js"></script>
+    </div>
 </body>
 </html>

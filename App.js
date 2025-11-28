@@ -1,48 +1,50 @@
 let list = [];
 
-const btn = document.getElementById("btn");
 const input = document.getElementById("input");
-const ol = document.getElementById("ol");
+const add = document.getElementById("add-btn");
+const show = document.getElementById("show");
 
-btn.addEventListener("click", (e) => {
-    e.preventDefault();
+add.addEventListener("click", function () {
+    let item = input.value.trim();
+    if (item === "") 
+        return;
 
-    let value = input.value.trim();
-    if (value === "") return;
-
-    list.push(value);
+    list.push(item);
     display();
+    alert("Item Added Into The List");
     input.value = "";
 });
 
 function display() {
-    ol.innerHTML = "";
+    show.innerHTML = "";
 
-    list.forEach((item, index) => {
-        let li = document.createElement("li");
+    list.forEach((todo, index) => {
+        const row = document.createElement("div");
 
-        li.className = "taskItem";
-        li.innerHTML = `
-            <span>${item}</span>
-            <div class="taskButtons">
-                <button onclick="editItem(${index})">Edit</button>
-                <button onclick="deleteItem(${index})">Delete</button>
-            </div>
-        `;
+        const ele = document.createElement("span");
+        ele.textContent = todo;
 
-        ol.appendChild(li);
+        const edit = document.createElement("button");
+        edit.textContent = "Edit";
+        edit.onclick = function () {
+            let updated = prompt("Edit item:", todo);
+            if (updated && updated.trim() !== "") {
+                list[index] = updated.trim();
+                display();
+            }
+        };
+
+        const del = document.createElement("button");
+        del.textContent = "Delete";
+        del.onclick = function () {
+            list.splice(index, 1);
+            display();
+        };
+
+        row.appendChild(ele);
+        row.appendChild(edit);
+        row.appendChild(del);
+
+        show.appendChild(row);
     });
-}
-
-function deleteItem(index) {
-    list.splice(index, 1);
-    display();
-}
-
-function editItem(index) {
-    let newValue = prompt("Edit your task:", list[index]);
-    if (newValue !== null && newValue.trim() !== "") {
-        list[index] = newValue.trim();
-        display();
-    }
 }
