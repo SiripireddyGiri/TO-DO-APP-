@@ -1,8 +1,9 @@
 *{
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    --button-bg-color:#b5c6e0;
+    --button-bg-color:#b5e0c3;
 }
 
 body{
@@ -11,15 +12,14 @@ body{
     display: flex;
     justify-content: center;
 }
+
 .present{
-    background:rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.4);
     display: flex;
-    justify-content: center;
-    flex-flow: column wrap;
-    gap: 15px;
-    height: 120%;
-    width:50%;
-    border-radius: 3%;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+    border-radius: 10px;
     padding: 30px;
 }
 
@@ -34,17 +34,18 @@ body{
 
 .details-sub, .arrange{
     display:flex;
-    flex-flow: column wrap;
+    flex-direction: column;
     gap: 10px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 button{
-    background-color:var(--button-bg-color);
+    background-color: var(--button-bg-color);
     height:30px;
-    width: 60px;
+    width: 80px;
     border: 2px solid black;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 button:hover{
@@ -54,7 +55,8 @@ button:hover{
 #input{
     border: 3px solid black;
     border-radius: 5px;
-    height: 25px;
+    height: 30px;
+    padding: 5px;
 }
 
 .view{
@@ -62,11 +64,14 @@ button:hover{
     justify-content: center;
 }
 
-.arrange button{
-    margin: 10px;
-}
-
-.show{
+.todo-row{
     display: flex;
     align-items: center;
+    gap: 10px;
+    margin: 5px 0;
+}
+
+.completed{
+    text-decoration: line-through;
+    opacity: 0.6;
 }

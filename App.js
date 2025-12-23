@@ -1,47 +1,66 @@
 let list = [];
 
 const input = document.getElementById("input");
-const add = document.getElementById("add-btn");
+const addBtn = document.getElementById("add-btn");
 const show = document.getElementById("show");
 
-add.addEventListener("click", function () {
-    let item = input.value.trim();
-    if (item === "") 
-        return;
-
-    list.push(item);
-    display();
-    alert("Item Added Into The List");
+addBtn.addEventListener("click", () => {
+    const item = input.value.trim();
+    if (item === "") return;
+    list.push({
+        text: item,
+        completed: false
+    });
     input.value = "";
+    display();
 });
 
 function display() {
     show.innerHTML = "";
 
-    list.forEach((todo, index) => {
-        const row = document.createElement("div");
+    const sortedList = [...list].sort(
+        (a, b) => a.completed - b.completed
+    );
 
-        const ele = document.createElement("span");
-        ele.textContent = todo;
+    sortedList.forEach(todo => {
+
+        const row = document.createElement("div");
+        row.className = "todo-row";
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = todo.completed;
+
+        checkbox.addEventListener("change", () => {
+            todo.completed = checkbox.checked;
+            display();
+        });
+
+        const text = document.createElement("span");
+        text.textContent = todo.text;
+
+        if (todo.completed) {
+            text.classList.add("completed");
+        }
 
         const edit = document.createElement("button");
         edit.textContent = "Edit";
-        edit.onclick = function () {
-            let updated = prompt("Edit item:", todo);
+        edit.onclick = () => {
+            const updated = prompt("Edit item:", todo.text);
             if (updated && updated.trim() !== "") {
-                list[index] = updated.trim();
+                todo.text = updated.trim();
                 display();
             }
         };
-
         const del = document.createElement("button");
         del.textContent = "Delete";
-        del.onclick = function () {
-            list.splice(index, 1);
+        del.onclick = () => {
+            list = list.filter(item => item !== todo);
             display();
         };
 
-        row.appendChild(ele);
+        row.appendChild(checkbox);
+        row.appendChild(text);
         row.appendChild(edit);
         row.appendChild(del);
 
